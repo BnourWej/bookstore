@@ -1,21 +1,42 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package practical.exercice.pkg1;
+package bookstore;
 
-/**
- *
- * @author bnwej
- */
-public class PracticalExercice1 {
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+public class Bookstore
+{
+public static void main(String[] args)  
+ {
+    boolean ValidInputs = false;
+    Scanner sc = new Scanner( System.in );
+    int quantity;
+    double price;
+                //while inputs are not valid, the user have to reenter another values 
+    while(ValidInputs== false)
+    {
+	try 
+            {
+		System.out.print( "Enter the quantity  \n");
+		quantity = sc.nextInt();
+
+                System.out.print( "Enter the price of the unit \n " );
+                price = sc.nextDouble();
+                //values must be greater then 0
+                if (quantity>0 && price > 0)
+                    {
+                        System.out.println(" Total price = quantity * price = "+Order.calculateTotalPrice(quantity,price));
+                        ValidInputs = true;
+                    }
+                            
+                else 
+                        System.out.println("Quantity and price must be greater than 0 !");
+	    }
+            //raise exception if the inputs are not numbers
+	catch(InputMismatchException e) 
+            {
+		System.out.println("You must enter a valid number !");
+            }
     }
-    
+ }
 }
+
