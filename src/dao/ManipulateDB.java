@@ -15,10 +15,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Book;
 
-/**
- *
- * @author bnwej
- */
 public class ManipulateDB {
 
     Connexion cnx = new Connexion();
@@ -30,7 +26,6 @@ public class ManipulateDB {
             if (cnx.con == null) {
                 System.out.println("NOT CONNECTED !");
             } else {
-                //id auto increment in the DB
                 PreparedStatement pstmt = cnx.con.prepareStatement("INSERT INTO `book`(author,title,price,releaseD) VALUES (?, ?, ?, ?)");
                 pstmt.setString(1, author);
                 pstmt.setString(2, title);
